@@ -5,7 +5,8 @@ import br.edu.ifpi.poo.notificacoes.Notificacao;
 public abstract class Conta {
    private String numero;
     protected double saldo;
-    private Notificacao notificacao;
+    protected Notificacao notificacao;
+    
 
     public Conta(String numero, double abertura, Notificacao notificacao){
         this.numero = numero;
@@ -16,6 +17,7 @@ public abstract class Conta {
     public void saque(double valor){
         this.saldo -=  valor;
         this.notificacao.enviaNotificacao("saque", valor);
+
     }
       
     public abstract void transferencia(double valor, Conta destino);

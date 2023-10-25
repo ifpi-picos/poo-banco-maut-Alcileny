@@ -1,11 +1,13 @@
   package br.edu.ifpi.poo.entidades;
 
+import java.util.ArrayList;
+
+
 import br.edu.ifpi.poo.notificacoes.Notificacao;
   
   public class Contacorrente extends Conta{ 
-    private double chequeEspecial;
-
-   public Contacorrente(String numero, double abertura, Notificacao notificacao) {
+    private double chequeEspecial; 
+    public Contacorrente(String numero, double abertura, Notificacao notificacao) {
       
       super(numero, abertura, notificacao);
   }
@@ -21,10 +23,16 @@ import br.edu.ifpi.poo.notificacoes.Notificacao;
         chequeEspecial -= (valor - saldo);
         saldo = 0;
         System.out.println("Saque realizado com sucesso!");
+    notificacao.enviaNotificacao("sacar", valor);
+    new ArrayList<>();
     }
-} public void depositar(double valor) {
+}
+
+public void depositar(double valor) {
   saldo += valor;
   System.out.println("Depósito realizado com sucesso!");
+  notificacao.enviaNotificacao("deposito", valor);
+  new ArrayList<>();
 }
 
 public void transferir(double valor, Conta destino) {
@@ -39,10 +47,12 @@ public void transferir(double valor, Conta destino) {
       saldo = 0;
       destino.depositar(valor);
       System.out.println("Transferência realizada com sucesso!");
-  }
-}
+      notificacao.enviaNotificacao("transferir", valor);
+      new ArrayList<>();
+  } 
 
-    
+   }
+
     @Override
     public void transferencia(double valor, Conta destino) {
 
