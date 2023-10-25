@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ifpi.poo.entidades.Conta;
+
 public class Cliente {
     private String nome;
     private String cpf;
