@@ -3,10 +3,11 @@ import java.util.List;
 
 import br.edu.ifpi.poo.entidades.Conta;
 
+// Cliente deveria ter endereco.
 public class Cliente {
     private String nome;
     private String cpf;
-    private String dataNascimento;
+    private String dataNascimento; // campo deveria ser do tipo de Date ou LocalDate
     private List<Conta> contas;
 
     public Cliente(String nome, String cpf, String dataNascimento) {
